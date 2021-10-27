@@ -9,3 +9,5 @@ bootstrap.plan
 *.swp
 .DS_Store
 **.zip
+
+cfn/parameters.json
