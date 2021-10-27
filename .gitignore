@@ -1,0 +1,11 @@
+.envrc
+
+.terraform/
+bootstrap.plan
+*.tfstate*
+
+.idea/
+/*.iml
+*.swp
+.DS_Store
+**.zip
