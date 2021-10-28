@@ -28,7 +28,15 @@ variable "common_tags" {
 variable "number_of_azs" {
   type        = number
   description = "The number of subnets to use (1 - 3 in eu-central-1)."
-  default     = 1
+  default     = 2
+}
+
+variable "route53_subdomain" {
+  default = "cfn-fuckup.cosee.biz"
+}
+
+variable "ecs_docker_image" {
+  default = "alexwhen/docker-2048"
 }
 
 locals {
