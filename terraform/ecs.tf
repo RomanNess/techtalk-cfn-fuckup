@@ -35,6 +35,7 @@ module "alb" {
   https_enabled       = true
   http_redirect       = true
   access_logs_enabled = false
+  health_check_path   = "/health"
 
   tags = local.common_tags
 }
@@ -63,7 +64,11 @@ module "default_backend_web_app" {
     {
       name  = "VPC_ID"
       value = aws_vpc.vpc.id
-    }
+    },
+    {
+      name  = "PORT"
+      value = "80"
+    },
   ]
 
   desired_count    = 1

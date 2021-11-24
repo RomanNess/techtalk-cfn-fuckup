@@ -36,7 +36,7 @@ variable "route53_subdomain" {
 }
 
 variable "ecs_docker_image" {
-  default = "alexwhen/docker-2048"
+  default = "hunterlong/statping"
 }
 
 locals {
