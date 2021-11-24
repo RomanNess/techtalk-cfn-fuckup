@@ -47,11 +47,6 @@ resource "aws_route_table" "public" {
 
 }
 
-resource "aws_main_route_table_association" "public" {
-  vpc_id         = aws_vpc.vpc.id
-  route_table_id = aws_route_table.public.id
-}
-
 resource "aws_route_table_association" "public" {
   count = var.number_of_azs
 
@@ -136,4 +131,15 @@ resource "aws_security_group" "egress_all" {
   }
 
   tags = local.common_tags
+}
+
+// main route table
+resource "aws_default_route_table" "main" {
+  default_route_table_id = aws_vpc.vpc.default_route_table_id
+
+  route = []
+
+  tags = merge(local.common_tags, {
+    Name = "${local.resource_prefix}-route-table-main"
+  })
 }
